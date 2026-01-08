@@ -1,5 +1,8 @@
 FROM eclipse-temurin:21-jre
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y dnsutils && rm -rf /var/lib/apt/lists/*
+
 COPY ./app.jar /app/app.jar
 
 # 기본값(필요하면 런타임에 덮어씀)
