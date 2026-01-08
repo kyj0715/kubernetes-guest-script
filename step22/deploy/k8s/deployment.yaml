@@ -31,29 +31,11 @@ spec:
       containers:
         - name: guest-container
           image: academyitwill/guest:v1
-          #imagePullPolicy: Always
+          imagePullPolicy: Always
           env:
-          - name: USER_PROFILE
-            value: remote-oracle 
+          - name: SPRING_PROFILES_ACTIVE
+            value: mysql-dev-group
           ports:
             - containerPort: 80
               name: http
-          envFrom:
-            - configMapRef:
-                name: guest-configmap
-          # resources:
-          #   requests:
-          #     memory: "500Mi"
-          #     cpu: "100m"
-          #   limits:
-          #     memory: "1000Mi"
-          #     cpu: "200m"
-          volumeMounts:
-            - name: secret-datasource
-              mountPath: /usr/src/myapp/datasource
-      volumes:
-        - name: secret-datasource
-          secret:
-            secretName: guest-secret
-          
-          
+        

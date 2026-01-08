@@ -34,8 +34,8 @@ spec:
           image: academyitwill/guest:v1
           imagePullPolicy: Always
           env:
-          - name: USER_PROFILE
-            value: remote-oracle 
+          - name: SPRING_PROFILES_ACTIVE
+            value: mysql-dev-group
           ports:
             - containerPort: 80
               name: http
