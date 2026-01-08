@@ -41,9 +41,9 @@ pipeline {
                 sh "docker build -t ${DOCKERHUB_USERNAME}/guest ./${STEP_NUM}/build/docker"
                 script{
                     if (DOCKERHUB_USERNAME == "academyitwill") {
-                        sh "docker push ${DOCKERHUB_USERNAME}/guest"
+                        sh "docker push ${DOCKERHUB_USERNAME}/guest:v1"
                     }else {
-                        //sh "docker push ${DOCKERHUB_USERNAME}/guest"
+                        sh "docker push ${DOCKERHUB_USERNAME}/guest:v1"
                     }
                 }
             }
