@@ -46,7 +46,7 @@ pipeline {
         stage('전환여부 확인') {
             steps {
                 script {
-                    returnValue = input message: 'Green 전환?', ok: "Yes", parameters: [booleanParam(defaultValue: true, name: 'IS_SWITCHED')]
+                    def returnValue = input message: 'Green 전환?', ok: "Yes", parameters: [booleanParam(defaultValue: true, name: 'IS_SWITCHED')]
                     if (returnValue) {
                         sh "kubectl patch -n guest-namespace-step23 svc guest-service -p '{\"spec\": {\"selector\": {\"blue-green-no\": \"2\"}}}'"
                     }
@@ -57,7 +57,7 @@ pipeline {
         stage('롤백 확인') {
             steps {
                 script {
-                    returnValue = input message: 'Blue 롤백?', parameters: [choice(choices: ['done', 'rollback'], name: 'IS_ROLLBACk')]
+                    def returnValue = input message: 'Blue 롤백?', parameters: [choice(choices: ['done', 'rollback'], name: 'IS_ROLLBACk')]
                     if (returnValue == "done") {
                         sh "kubectl delete -f ./${STEP_NUM}/deploy/k8s/blue/deployment.yaml"
                         sh "kubectl delete -f ./${STEP_NUM}/deploy/k8s/green/service.yaml"
