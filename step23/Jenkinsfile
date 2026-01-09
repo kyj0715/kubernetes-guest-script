@@ -1,7 +1,7 @@
 pipeline {
     agent any
+    
     parameters {
-      parameters {
         // GitHub  사용자명 입력
         string(name: 'GITHUB_USERNAME',  defaultValue: '2025-07-JAVA-DEVELOPER-162', description: 'GitHub  사용자명을 입력하세요.')
     }			
