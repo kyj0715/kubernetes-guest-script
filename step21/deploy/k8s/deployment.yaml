@@ -30,7 +30,7 @@ spec:
         kubernetes.io/hostname: k8s-master
       containers:
         - name: guest-container
-          image: academyitwill/guest:v1
+          image: kaede1220/guest:v1
           imagePullPolicy: Always
           env:
           - name: SPRING_PROFILES_ACTIVE
