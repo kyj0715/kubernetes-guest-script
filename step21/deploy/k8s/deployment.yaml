@@ -34,7 +34,7 @@ spec:
           imagePullPolicy: Always
           env:
           - name: SPRING_PROFILES_ACTIVE
-            value: mysql-prod-group
+            value: mysql-dev-group
           ports:
             - containerPort: 8080
               name: http
