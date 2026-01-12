@@ -6,9 +6,9 @@ pipeline {
     }
     parameters {
         // DockerHub 사용자명 입력
-        string(name: 'DOCKERHUB_USERNAME',  defaultValue: 'academyitwill', description: 'DockerHub 사용자명을 입력하세요.')
+        string(name: 'DOCKERHUB_USERNAME',  defaultValue: 'kaede1220', description: 'DockerHub 사용자명을 입력하세요.')
         // GitHub  사용자명 입력
-        string(name: 'GITHUB_USERNAME',  defaultValue: '2025-07-JAVA-DEVELOPER-162', description: 'GitHub  사용자명을 입력하세요.')
+        string(name: 'GITHUB_USERNAME',  defaultValue: 'kyj0715', description: 'GitHub  사용자명을 입력하세요.')
     }	
     environment {
         GITHUB_SCRIPT_URL = "https://github.com/${GITHUB_USERNAME}/kubernetes-guest-script.git"
